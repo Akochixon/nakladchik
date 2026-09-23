@@ -1,5 +1,5 @@
 import json
-import google.generativeai as genai
+from google import genai
 from PIL import Image
 
 SYSTEM_PROMPT = """
