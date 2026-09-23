@@ -11,6 +11,10 @@ from handlers import start, invoice, admin
 from services.scheduler import send_daily_summary
 
 async def main():
+    # --- Supabase'da jadvallarni avtomatik yaratish ---
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+    # --------------------------------------------------
     bot = Bot(token=BOT_TOKEN)
     dp = Dispatcher()
     
